@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--1. 导入 vue.js 文件-->
+    <script src="vue1026.js"></script>
+</head>
+<body>
+{{name}}
+<div id="app">
+    <!--在Vue接管区域中使用Vue的系统指令呈现数据(MVVM中的View)-->
+    {{name}}
+
+    <button v-on:click='change'>改变name值</button>
+</div>
+
+<script>
+    //    实例化 Vue 对象
+    // vm : 是 MVVM 中的 View Model
+    var vm = new Vue({
+        el: '#app', // 表示当前 vue 对象接管 app 的div区域
+        data: {
+            name: '黑马程序员'  // 相当于是 MVVM 中的 Model 这个角色
+        },
+        // 注册事件 v-on
+        methods: {
+            change: function () {
+                this.name += '1';
+            }
+        }
+    })
+</script>
+</body>
+</html>

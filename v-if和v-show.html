@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue1026.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="toggle">显示隐藏切换</button>
+    <div v-if='isshow'>死亡如风,常伴吾身</div>
+    <div v-show='isshow'>死亡如风,常伴吾身</div>
+</div>
+<!--
+v-if 是添加或者移除到 dom 中
+v-show  是控制样式  来控制显示隐藏
+-->
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isshow: true,
+        },
+        methods: {
+            toggle: function () {
+                // 实现显示隐藏  只需要将 isshow 每次取反即可
+                this.isshow = !this.isshow;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue1026.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <!--遍历数组-->
+    <!--1.0-->
+    <!--<li v-for="(index,item) in list">{{index}}&#45;&#45;{{item}}</li>-->
+    <hr/>
+    <!--<li v-for="item in list">{{$index}}&#45;&#45;{{item}}</li>-->
+    <!--2.0-->
+    <!--<li v-for="(item,index) in list">{{index}}&#45;&#45;{{item}}</li>-->
+
+
+    <!--去重-->
+    <!--1.0--><!--加 teack-by 不会报错-->
+    <li v-for="(index,item) in list" track-by="$index">{{index}}--{{item}}</li>
+    <hr/>
+    <!--2.0-->
+    <!--<li v-for="(index,item) in list" :key="$index">{{index}}&#45;&#45;{{item}}</li>-->
+
+
+    <!--遍历对象-->
+    <!--1.0--><!--没有index-->
+    <li v-for="(key,item) in user">{{key}}--{{item}}</li>
+    <hr/>
+    <!--2.0-->
+    <!--<li v-for="(key,item,index) in user">{{index}}&#45;&#45;{{key}}&#45;&#45;{{item}}</li>-->
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            list: [1, 2, 3, 4, 5, 5, 5],
+            user: {name: 'itcast', age: 10}
+        }
+    })
+</script>
+</body>
+</html>

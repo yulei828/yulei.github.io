@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue1026.js"></script>
+</head>
+<body>
+<div id="app">
+    {{time}}<br/>
+    {{time | datefmt }}
+</div>
+
+<script>
+    // 全局过滤器
+    Vue.filter('datefmt',function(input){
+        var res = '';
+        var year = input.getFullYear();
+        var month = input.getMonth(0) + 1;
+        var day = input.getDate();
+        res = year + '-' + month + '-' + day;
+        return res;
+    })
+
+
+
+    new Vue({
+        el: '#app',
+        data: {
+            time: new Date()
+        },
+//        filter: {
+//            // 局部过滤器
+//            datefmt: function (input) {
+//                var res = '';
+//                var year = input.getFullYear();
+//                var month = input.getMonth(0) + 1;
+//                var day = input.getDate();
+//                res = year + '-' + month + '-' + day;
+//                return res;
+//            }
+//        }
+    })
+</script>
+</body>
+</html>
